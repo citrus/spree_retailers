@@ -12,7 +12,7 @@ To create a spree retailers demo app, run the following:
     rails new spree_retailers_example 
     cd spree_retailers_example 
     echo "gem 'spree', '0.40.2'" >> Gemfile 
-    echo "gem 'spree_retailer', :git => 'git://github.com/citrus/spree_retailers.git'" >> Gemfile 
+    echo "gem 'spree_retailers', :git => 'git://github.com/citrus/spree_retailers.git'" >> Gemfile 
     rm public/index.html 
     bundle install 
     rake spree:install spree_retailers:install db:migrate db:seed
