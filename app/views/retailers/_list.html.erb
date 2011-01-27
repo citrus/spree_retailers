@@ -1,0 +1,6 @@
+<% if defined? retailers %>  
+  <div class="retailers">
+    <h3>Find <%= Spree::Config[:site_name] %> at the following retail locations:</h3>
+    <%= render :partial => 'retailer', :collection => retailers %>
+  </div>
+<% end %>

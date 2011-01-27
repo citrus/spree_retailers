@@ -1,0 +1,55 @@
+<div class='toolbar'>
+  <ul class='actions'>
+    <li>
+      <p><%= button_link_to "New Retailer", new_object_url, :icon => 'add' %></p>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+
+<h1>Listing Retailers</h1>
+
+<table class="index">
+  <thead>
+	<tr>
+    	<th><%= order @search, :by => :name %></th>
+    	<th><%= order @search, :by => :address %></th>
+    	<th><%= order @search, :by => :email %></th>
+    	<th><%= order @search, :by => :phone %></th>
+    	<th><%= t("action") %></th>
+	</tr>
+  </thead>
+  <tbody>
+    <%- @collection.each do |retailer|%>
+    <tr id="<%= dom_id retailer %>">
+      <td width="200px"><%= link_to retailer.name, object_url(retailer) %></td>
+      <td><%= retailer.address %></td>
+      <td><%= retailer.email %></td>
+      <td><%= retailer.phone %></td>
+      <td>
+      	<%= link_to_edit retailer %> &nbsp;
+      	<%= link_to_delete retailer %> &nbsp;
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
+
+
+<% content_for :sidebar do %>
+
+  <%= form_for @search do |f| %>
+    <div class="box">
+      <h3><%= t(:search) %></h3>
+      <p>
+        <%= t("title") %><br />
+        <%= f.text_field :name_contains, :size=> 18 %>
+      </p>
+      <p><%= button t("search") %></p>
+    </div>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,8 @@
+<h1>Edit Retailer</h1>
+
+<% form_for(@retailer, :url => object_url, :html => { :multipart => true, :method => :put }) do |f| %>
+  <%= render :partial => "form", :locals => { :f => f } %>
+  <p class="form-buttons">
+    <%= button t("update") %> <%= link_to t('cancel'), collection_url %>
+  </p>
+<% end %>
