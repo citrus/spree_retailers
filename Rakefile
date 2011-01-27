@@ -28,7 +28,7 @@ task :test_app do
   files = `gem contents spree`.split("\n").select{|file| file.match("test_app_generator")}
   if files.length == 1
     require files.first
-    class SpreeMailTestAppGenerator < Spree::Generators::TestAppGenerator
+    class SpreeRetailersTestAppGenerator < Spree::Generators::TestAppGenerator
       def tweak_gemfile
         append_file "Gemfile" ,
           <<-gems
@@ -58,7 +58,7 @@ gem 'spree_retailers', :path => "#{File.dirname(__FILE__)}"
       end
     end
     
-    SpreeMailTestAppGenerator.start
+    SpreeRetailersTestAppGenerator.start
     
     puts "spec/test_app created. "
            

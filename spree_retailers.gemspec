@@ -4,7 +4,7 @@ require "spree_retailers/version"
 
 Gem::Specification.new do |s|
   s.name        = "spree_retailers"
-  s.version     = SpreeMail::VERSION
+  s.version     = SpreeRetailers::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Spencer Steffen"]
   s.email       = ["spencer@citrusme.com"]
@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Spree Retailers adds a retailer admin to Spree.}
   s.description = %q{}
 
-  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'public/**/*', 'Rakefile']
+  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'Rakefile']
   s.test_files   = Dir['test']
   
   s.require_paths = ["lib"]
