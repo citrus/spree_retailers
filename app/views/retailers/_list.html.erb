@@ -1,6 +1,16 @@
 <% if defined? retailers %>  
   <div class="retailers">
     <h3>Find <%= Spree::Config[:site_name] %> at the following retail locations:</h3>
-    <%= render :partial => 'retailer', :collection => retailers %>
+    
+    <div class="state-nav">
+      <%= state_nav_helper %>
+    </div>
+    
+    <% retailers.group_by(&:state).each do |state, state_retailers| %>
+      <hr/>
+      <h4><%= state %></h4>
+      <%= render :partial => 'retailer', :collection => state_retailers %>
+    <% end %>
+    
   </div>
 <% end %>

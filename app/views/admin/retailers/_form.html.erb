@@ -1,6 +1,6 @@
 <%= f.field_container :name do %>
   <%= f.label :name, "Name" %><br />
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :class => 'title' %>
   <%= error_message_on :retailer, :name %>
 <% end %>
 
@@ -54,4 +54,10 @@
   <%= f.label :url, "Website URL" %><br />
   <%= f.text_field :url  %>
   <%= error_message_on :retailer, :url %>
+<% end %>
+
+<%= f.field_container :logo do %>
+  <%= f.label :logo, "Logo Image:" %><br />
+  <%= f.file_field :logo  %>
+  <%= error_message_on :retailer, :logo %>
 <% end %>

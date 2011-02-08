@@ -1,5 +1,6 @@
 <% if defined? retailer %>
   <div class="retailer">
+    <%= image_tag retailer.logo.url, :alt => retailer.name, :class => 'thumb' if retailer.has_logo? %>
     <p>
       <b><%= retailer.has_url? ? link_to(retailer.name, retailer.url, :class => 'popup') : retailer.name %></b><br/>
       <%= retailer.address %>

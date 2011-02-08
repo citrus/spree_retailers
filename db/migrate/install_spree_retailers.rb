@@ -11,6 +11,19 @@ class InstallSpreeRetailers < ActiveRecord::Migration
       t.string    :phone
       t.string    :email
       t.string    :url
+      
+      # geokit
+      t.float     :latitude
+      t.float     :longitude
+      t.string    :geokit_precision, :geokit_provider, :geokit_accuracy
+      t.boolean   :geokit_success, :default => false
+      
+      # paperclip
+      t.string     :logo_file_name
+	    t.string     :logo_content_type
+	    t.string     :logo_file_size
+	    t.datetime   :logo_updated_at
+      
       t.timestamps
     end
   end

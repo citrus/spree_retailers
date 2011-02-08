@@ -1,33 +1,48 @@
 <h1><%= @retailer.name %></h1>
+
+<%= image_tag @retailer.logo.url if @retailer.has_logo? %>
+
 <p>
-  <%= @retailer.address %>
-  
+  <b>Address:</b><br/>
+  <%= @retailer.address %>  
   <% if @retailer.has_address2? %>
     <br/>
     <%= @retailer.address2 %>
   <% end %>
-  
   <br/>
-  
   <%= @retailer.city %>, 
-  <%= @retailer.state %> 
-  <%= @retailer.zipcode %> 
-
-  <% if @retailer.has_phone? %>
-    <br/>
-    <%= @retailer.phone %>
-  <% end %>
+  <%= @retailer.state %> <%= @retailer.zipcode %>
+</p>  
+<% if @retailer.has_phone? %>
+  <p>
+    <b>Phone:</b> <%= @retailer.phone %>
+  </p>
+<% end %>
   
-  <% if @retailer.has_email? %>
-    <br/>
-    <%= mail_to @retailer.email %>
-  <% end %>
+<% if @retailer.has_email? %>
+  <p>
+    <b>Email:</b> <%= mail_to @retailer.email %>
+  </p>
+<% end %>
   
-  <% if @retailer.has_url? %>
+<% if @retailer.has_url? %>
+  <p>
+    <b>Website URL:</b>: <%= link_to @retailer.url, @retailer.url, :class => 'popup' %>
+  </p>
+<% end %>
+  
+  
+<% if @retailer.geocoded? %>
+  <p>
+    <b>Latitude:</b> <%= @retailer.latitude %>&deg;
     <br/>
-    <%= link_to @retailer.url, @retailer.url, :class => 'popup' %>
-  <% end %>
-</p>
+    <b>Longitude:</b> <%= @retailer.longitude %>&deg;
+    <br/>
+    <b>Precision:</b> <%= @retailer.geokit_precision %>
+    <br/>
+    <b>Provider:</b> <%= @retailer.geokit_provider %>
+  </p>
+<% end %>
 
 
 <p>

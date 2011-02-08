@@ -1,0 +1,29 @@
+one:
+   name: Shop McStorey
+   address: 111 State St
+   address2:
+   city: Santa Barbara
+   state: California
+   zipcode: 93101
+   phone: 805 555 5555
+   url: http://shop-mcstorey.dev
+   
+two:
+   name: Store VonRetailer
+   address: 4205 State St
+   address2:
+   city: Santa Barbara
+   state: California
+   zipcode: 93101
+   phone: 805 555 4444
+   url: http://store-vonretailer.dev
+   
+three:
+   name: Buy From-Us-alot
+   address: 425 Chapala St
+   address2:
+   city: Santa Barbara
+   state: California
+   zipcode: 93101
+   phone: 805 555 7890
+   url: buy-from-us-alot.dev
