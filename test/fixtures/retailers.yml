@@ -3,7 +3,7 @@ one:
    address: 111 State St
    address2:
    city: Santa Barbara
-   state: California
+   state: CA
    zipcode: 93101
    phone: 805 555 5555
    url: http://shop-mcstorey.dev
@@ -13,7 +13,7 @@ two:
    address: 4205 State St
    address2:
    city: Santa Barbara
-   state: California
+   state: CA
    zipcode: 93101
    phone: 805 555 4444
    url: http://store-vonretailer.dev
@@ -23,7 +23,7 @@ three:
    address: 425 Chapala St
    address2:
    city: Santa Barbara
-   state: California
+   state: CA
    zipcode: 93101
    phone: 805 555 7890
    url: buy-from-us-alot.dev

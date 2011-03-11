@@ -55,11 +55,7 @@ class Retailer < ActiveRecord::Base
     def geocode
       geo = Geokit::Geocoders::MultiGeocoder.geocode(full_address)
       if geo.success
-        self.attributes = {
-          :address          => geo.street_address,
-          :city             => geo.city,
-          :state            => geo.state,
-          :zipcode          => geo.zip,  
+        self.attributes = {  
           :latitude         => geo.lat,
           :longitude        => geo.lng,
           :geokit_provider  => geo.provider,
@@ -69,8 +65,8 @@ class Retailer < ActiveRecord::Base
         }
       else
         self.attributes = {
-          :latitude => nil,
-          :longitude => nil,
+          :latitude         => nil,
+          :longitude        => nil,
           :geokit_provider  => nil,
           :geokit_precision => nil,
           :geokit_accuracy  => nil,

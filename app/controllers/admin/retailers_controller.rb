@@ -46,7 +46,7 @@ class Admin::RetailersController < Admin::BaseController
   end
 
   def get_states
-    @states = State.where(:country_id => 214).collect{|state| state.name }.sort
+    @states = State.where(:country_id => 214).collect{|state| [state.name, state.abbr] }.sort
   end
   
 end

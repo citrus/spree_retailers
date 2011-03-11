@@ -8,7 +8,7 @@
     
     <% retailers.group_by(&:state).each do |state, state_retailers| %>
       <hr/>
-      <h4 id="<%= state.downcase %>"><%= state %></h4>
+      <h4 id="<%= state.downcase %>"><%= @states.find_by_abbr(state).name rescue state %></h4>
       <%= render :partial => 'retailer', :collection => state_retailers %>
     <% end %>
     
