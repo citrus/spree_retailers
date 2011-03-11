@@ -4,6 +4,17 @@ Spree Retailers
 Spree Retailers is a simple Spree Extension that adds a retailers page as well as a retailers admin.
 
 
+Installation
+------------
+
+As usual, add 'spree_retalers' to your Gemfile or install directly.
+
+    gem 'spree_retailers', '0.40.0.4'
+    
+    # or
+    
+    (sudo) gem install spree_retailers
+
 
 Demo
 ----
@@ -12,7 +23,7 @@ To create a spree retailers demo app, run the following:
   
     rails new spree_retailers_example 
     cd spree_retailers_example 
-    echo "gem 'spree', '0.40.2'" >> Gemfile 
+    echo "gem 'spree', '0.40.3'" >> Gemfile 
     echo "gem 'spree_retailers'" >> Gemfile 
     rm public/index.html
     bundle install
