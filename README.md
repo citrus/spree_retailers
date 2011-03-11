@@ -33,6 +33,7 @@ To Do
 * Write controller tests
 * Write admin tests
 * Google map integration (we're already geocoding, so why not?)
+* Add International Support
 
 
 License
