@@ -9,7 +9,7 @@ class Retailer < ActiveRecord::Base
 
 
   has_attached_file :logo, 
-                    :styles => { :mini => '48x48>', :thumb => '120x100#', :large => '450x400#' },
+                    :styles => { :mini => '48x48>', :thumb => '150x150>', :large => '450x400>' },
                     :default_style => :thumb,
                     :url => "/assets/retailers/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/retailers/:id/:style/:basename.:extension"
