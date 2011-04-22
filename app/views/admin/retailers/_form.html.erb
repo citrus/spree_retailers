@@ -6,20 +6,20 @@
 
 <%= f.field_container :address do %>
   <%= f.label :address, "Address" %><br />
-  <%= f.text_field :address  %>
+  <%= f.text_field :address, :class => 'text' %>
   <%= error_message_on :retailer, :address %>
 <% end %>
 
 <%= f.field_container :address2 do %>
   <%= f.label :address2, "Address (cont)" %><br />
-  <%= f.text_field :address2  %>
+  <%= f.text_field :address2, :class => 'text'  %>
   <%= error_message_on :retailer, :address2 %>
 <% end %>
 
 
 <%= f.field_container :city do %>
   <%= f.label :city, "City" %><br />
-  <%= f.text_field :city  %>
+  <%= f.text_field :city, :class => 'text' %>
   <%= error_message_on :retailer, :city %>
 <% end %>
 
@@ -32,7 +32,7 @@
 
 <%= f.field_container :zipcode do %>
   <%= f.label :zipcode, "Zip" %><br />
-  <%= f.text_field :zipcode  %>
+  <%= f.text_field :zipcode, :class => 'text' %>
   <%= error_message_on :retailer, :zipcode %>
 <% end %>
 
@@ -40,24 +40,24 @@
 
 <%= f.field_container :phone do %>
   <%= f.label :phone, "Phone" %><br />
-  <%= f.text_field :phone  %>
+  <%= f.text_field :phone, :class => 'text' %>
   <%= error_message_on :retailer, :phone %>
 <% end %>
 
 <%= f.field_container :email do %>
   <%= f.label :email, "Email" %><br />
-  <%= f.text_field :email  %>
+  <%= f.text_field :email, :class => 'text' %>
   <%= error_message_on :retailer, :email %>
 <% end %>
 
 <%= f.field_container :url do %>
   <%= f.label :url, "Website URL" %><br />
-  <%= f.text_field :url  %>
+  <%= f.text_field :url, :class => 'text' %>
   <%= error_message_on :retailer, :url %>
 <% end %>
 
 <%= f.field_container :logo do %>
   <%= f.label :logo, "Logo Image:" %><br />
-  <%= f.file_field :logo  %>
+  <%= f.file_field :logo, :class => 'file' %>
   <%= error_message_on :retailer, :logo %>
 <% end %>

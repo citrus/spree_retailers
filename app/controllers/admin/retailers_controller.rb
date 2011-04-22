@@ -21,32 +21,20 @@ class Admin::RetailersController < Admin::BaseController
 
   private
   
-  def object
-    get_states
-    super
-  end
-  
-  def collection
-    return @collection if @collection.present?
-    unless request.xhr?
-      params[:search] ||= {}
-      params[:search][:order] ||= "ascend_by_name"      
-
-      @search = Retailer.searchlogic(params[:search])
-
-      #set order by to default or form result
-      @search.order ||= "ascend_by_name"
-
-      @collection = @search.do_search.paginate(:per_page => Spree::Config[:admin_products_per_page], :page => params[:page])
-    else
-      @collection = Retailer.find(:all,
-                          :conditions => params[:q] ? ["Retailer.name like :search OR Retailer.email like :search OR Retailer.phone like :search", {:search => "#{params[:q].strip}%"}] : nil,
-                          :limit => (params[:limit] || 100))
+    def object
+      get_states
+      super
     end
-  end
-
-  def get_states
-    @states = State.where(:country_id => 214).collect{|state| [state.name, state.abbr] }.sort
-  end
+    
+    def collection
+      params[:search] ||= {}
+      params[:search][:meta_sort] ||= "name.asc"
+      @search = end_of_association_chain.metasearch(params[:search])
+      @collection = @search.paginate(:per_page => Spree::Config[:orders_per_page], :page => params[:page])
+    end
+  
+    def get_states
+      @states = State.where(:country_id => 214).collect{|state| [state.name, state.abbr] }.sort
+    end
   
 end

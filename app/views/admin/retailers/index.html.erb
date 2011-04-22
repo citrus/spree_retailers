@@ -13,11 +13,11 @@
 <table class="index">
   <thead>
 	<tr>
-    	<th><%= order @search, :by => :name %></th>
-    	<th><%= order @search, :by => :address %></th>
-    	<th><%= order @search, :by => :state %></th>
-    	<th><%= order @search, :by => :email %></th>
-    	<th><%= order @search, :by => :phone %></th>
+    	<th><%= sort_link @search, :name %></th>
+    	<th><%= sort_link @search, :address %></th>
+    	<th><%= sort_link @search, :state %></th>
+    	<th><%= sort_link @search, :email %></th>
+    	<th><%= sort_link @search, :phone %></th>
     	<th><%= t("action") %></th>
 	</tr>
   </thead>
