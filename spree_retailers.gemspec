@@ -17,8 +17,6 @@ Gem::Specification.new do |s|
   
   s.require_paths = ["lib"]
 
-  s.has_rdoc = false
-
   s.add_dependency('spree_core', '>= 0.40.2')
   s.add_dependency('spree_auth', '>= 0.40.2')
   s.add_dependency('mail',       '>= 2.2.0')
