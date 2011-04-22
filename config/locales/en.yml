@@ -1,2 +1,7 @@
 en:
   retailers: Retailers
+  
+  admin:
+    retailers:
+      index:
+        name_contains: Name Contains
