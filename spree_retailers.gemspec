@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["spencer@citrusme.com"]
   s.homepage    = "http://github.com/citrus/spree_retailers"
   s.summary     = %q{Spree Retailers adds a retailer admin to Spree.}
-  s.description = %q{Spree Retailers adds a retailer page and admin to Spree Commerce.}
+  s.description = %q{Spree Retailers adds a retail store page and admin to Spree Commerce.}
 
   s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'Rakefile']
   s.test_files   = Dir['test']
