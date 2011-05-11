@@ -12,18 +12,22 @@ Gem::Specification.new do |s|
   s.summary     = %q{Spree Retailers adds a retailer admin to Spree.}
   s.description = %q{Spree Retailers adds a retail store page and admin to Spree Commerce.}
 
-  s.files        = Dir['CHANGELOG', 'README.md', 'LICENSE', 'config/**/*', 'lib/**/*', 'app/**/*', 'db/**/*', 'Rakefile']
-  s.test_files   = Dir['test']
-  
-  s.require_paths = ["lib"]
+  s.rubyforge_project = "spree_retailers"
 
-  s.add_dependency('spree_core', '>= 0.40.2')
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
+  
+  s.add_dependency('spree_core', '>= 0.40.2')g
   s.add_dependency('spree_auth', '>= 0.40.2')
   s.add_dependency('mail',       '>= 2.2.0')
   s.add_dependency('geokit',     '>= 1.5.0')
   
-  s.add_development_dependency('spree', '>= 0.40.2')
-	s.add_development_dependency('shoulda', '>= 2.11.3')
-	s.add_development_dependency('sqlite3-ruby', '>= 1.3.2')
-
+  s.add_development_dependency('spree',          '>= 0.40.2')
+	s.add_development_dependency('shoulda',        '>= 2.11.3')
+	s.add_development_dependency('sqlite3',        '>= 1.3.2')
+  s.add_development_dependency('spork',          '>= 0.9.0.rc7')
+  s.add_development_dependency('spork-testunit', '>= 0.0.5')
+  
 end
