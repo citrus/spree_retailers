@@ -1,5 +1,12 @@
 en:
+
+  retailer: Retailer
   retailers: Retailers
+  
+  successfully_created: %{resource} was successfully created.
+  successfully_updated: %{resource} was successfully updated.
+  successfully_removed: %{resource} was successfully removed.
+
   
   admin:
     retailers:

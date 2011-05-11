@@ -19,12 +19,13 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
-  s.add_dependency('spree_core', '>= 0.40.2')g
+  s.add_dependency('spree_core', '>= 0.40.2')
   s.add_dependency('spree_auth', '>= 0.40.2')
   s.add_dependency('mail',       '>= 2.2.0')
   s.add_dependency('geokit',     '>= 1.5.0')
   
   s.add_development_dependency('spree',          '>= 0.40.2')
+  s.add_development_dependency('dummier',        '0.1.0.rc1')
 	s.add_development_dependency('shoulda',        '>= 2.11.3')
 	s.add_development_dependency('sqlite3',        '>= 1.3.2')
   s.add_development_dependency('spork',          '>= 0.9.0.rc7')

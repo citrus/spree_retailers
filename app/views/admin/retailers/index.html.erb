@@ -28,7 +28,7 @@
       <td><%= retailer.address %></td>
       <td><%= retailer.state %></td>
       <td><%= retailer.email %></td>
-      <td><%= retailer.phone %></td>
+      <td><%= number_to_phone retailer.phone %></td>
       <td>
       	<%= link_to_edit retailer %> &nbsp;
       	<%= link_to_delete retailer %> &nbsp;

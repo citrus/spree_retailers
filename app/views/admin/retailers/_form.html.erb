@@ -12,7 +12,7 @@
 
 <%= f.field_container :address2 do %>
   <%= f.label :address2, "Address (cont)" %><br />
-  <%= f.text_field :address2, :class => 'text'  %>
+  <%= f.text_field :address2, :class => 'text' %>
   <%= error_message_on :retailer, :address2 %>
 <% end %>
 
@@ -23,12 +23,18 @@
   <%= error_message_on :retailer, :city %>
 <% end %>
 
+
+
 <%= f.field_container :state do %>
   <%= f.label :state, "State" %><br />
-  <%= f.select :state, @states %>
+  <% if @retailer.new_record? || @retailer.country == "United States" %>
+    <%= f.select :state, @states %>
+  <% else %>
+    <%= f.text_field :state, :class => 'text' %>
+  <% end %>
   <%= error_message_on :retailer, :state %>
 <% end %>
-
+  
 
 <%= f.field_container :zipcode do %>
   <%= f.label :zipcode, "Zip" %><br />
@@ -36,6 +42,12 @@
   <%= error_message_on :retailer, :zipcode %>
 <% end %>
 
+
+<%= f.field_container :country do %>
+  <%= f.label :country, "Country" %><br />
+  <%= f.select :country, @countries, :selected => @retailer.new_record? ? "United States" : @retailer.country  %>
+  <%= error_message_on :retailer, :country %>
+<% end %>
 
 
 <%= f.field_container :phone do %>
@@ -46,7 +58,7 @@
 
 <%= f.field_container :email do %>
   <%= f.label :email, "Email" %><br />
-  <%= f.text_field :email, :class => 'text' %>
+  <%= f.email_field :email, :class => 'text' %>
   <%= error_message_on :retailer, :email %>
 <% end %>
 
@@ -61,3 +73,22 @@
   <%= f.file_field :logo, :class => 'file' %>
   <%= error_message_on :retailer, :logo %>
 <% end %>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+  $(document).ready(function() {
+    $('#retailer_country').change(function(evt) {
+	    if (this.options[this.selectedIndex].value == 'United States') {
+	      $('#retailer_state').remove();
+        $('#retailer_state_select').attr('id', 'retailer_state').show();
+	    } else {    
+  	    var p = $('#retailer_state').hide().attr('id', 'retailer_state_select').parent('p');
+  	    p.append('<input type="text" name="retailer[state]" id="retailer_state" class="text" />');
+  	  }	    
+    });
+  });
+   
+//]]>
+</script>
