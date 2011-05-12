@@ -2,25 +2,6 @@ class Admin::RetailersController < Admin::ResourceController
 
   before_filter :get_locations, :except => [:index,:destroy]
 
-  #resource_controller
-  #
-  #actions :all
-  #
-	#create.response do |wants|
-	#	wants.html {redirect_to admin_retailers_path}
-  #end
-  #  
-	#update.response do |wants|
-	#	wants.html {redirect_to admin_retailers_path}
-  #end
-  #
-  #index.response do |wants|
-  #  wants.html { render :action => :index }
-  #  wants.json { render :json => @collection.to_json() }
-  #end
-  #
-  #destroy.success.wants.js { render_js_for_destroy }
-
   private
   
     def collection

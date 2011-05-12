@@ -54,6 +54,18 @@
       <p>
         <label><%= t '.name_contains' %></label><br />
         <%= f.text_field :name_contains, :size => 25 %>
+      </p>
+      <p>
+        <label><%= t '.email_contains' %></label><br />
+        <%= f.text_field :email_contains, :size => 25 %>
+      </p>
+      <p>
+        <label><%= t '.country_contains' %></label><br />
+        <%= f.text_field :country_contains, :size => 25 %>
+      </p>
+      <p>
+        <label><%= t '.state_contains' %></label><br />
+        <%= f.text_field :state_contains, :size => 25 %>
       </p>      
     <% end %>
     <%= hook :admin_pages_index_search_buttons, locals do %>

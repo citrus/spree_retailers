@@ -1,6 +1,8 @@
 class Retailer < ActiveRecord::Base
   
-  validates_presence_of :name, :address, :city, :state, :zipcode
+  validates :name, :address, :city, :presence => true
+  validates :state, :zipcode, :presence => true, :if => Proc.new{|record| record.country == "United States" }
+  
   validates :email, :email => true, :allow_blank => true
   
   validates_numericality_of :latitude, :longitude, :allow_blank => true

@@ -8,7 +8,6 @@ end
 
 require 'rake'
 require 'rake/testtask'
-#require 'rake/rdoctask'
 
 Bundler::GemHelper.install_tasks
 
@@ -20,10 +19,3 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :default => :test
-
-
-desc "Builds dummy app for testing"
-task :test_app do
-  require 'spree_retailers/generators/test_app_generator'
-  SpreeRetailers::Generators::TestAppGenerator.start
-end

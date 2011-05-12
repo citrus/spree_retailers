@@ -2,14 +2,22 @@
   <div class="retailers">
     <h3>Find <%= Spree::Config[:site_name] %> at the following retail locations:</h3>
     
-    <div class="state-nav">
-      <%= state_nav_helper %>
-    </div>
-    
-    <% retailers.group_by(&:state).each do |state, state_retailers| %>
-      <hr/>
-      <h4 id="<%= state.downcase %>"><%= @states[state] %></h4>
-      <%= render :partial => 'retailer', :collection => state_retailers %>
+    <% retailers.group_by(&:country).each do |country, country_retailers| %>
+      
+      <h3><%= country %></h3>
+      
+      <% if country == "United States" %>
+        <div class="state-nav">
+          <%= state_nav_helper(country_retailers) %>
+        </div>
+      <% end %>
+      
+      <% country_retailers.group_by(&:state).each do |state, state_retailers| %>
+        <hr/>
+        <h4 id="<%= state.downcase %>"><%= @states[state] %></h4>
+        <%= render :partial => 'retailer', :collection => state_retailers %>
+      <% end %>
+      
     <% end %>
     
   </div>

@@ -1,9 +1,7 @@
-if ENV["RAILS_ENV"] != "production"
-  require 'spree_core'
-  require 'spree_auth'
-  require 'geokit'
-end
+require 'spree_core'
+require 'spree_auth'
 
+require 'geokit'
 require 'spree_retailers/version'
 require 'spree_retailers/custom_hooks'
 

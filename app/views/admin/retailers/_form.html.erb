@@ -84,7 +84,7 @@
 	      $('#retailer_state').remove();
         $('#retailer_state_select').attr('id', 'retailer_state').show();
 	    } else {    
-  	    var p = $('#retailer_state').hide().attr('id', 'retailer_state_select').parent('p');
+  	    var p = $('#retailer_state').hide().attr('id', 'retailer_state_select').removeAttr('name').parent('p');
   	    p.append('<input type="text" name="retailer[state]" id="retailer_state" class="text" />');
   	  }	    
     });

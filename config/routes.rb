@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  resources :retailers
+  get '/retailers/:id/:country' => 'retailers#index', :as => :country_retailers
+  resources :retailers, :only => :index
 
   namespace :admin do
     resources :retailers

@@ -12,3 +12,6 @@ en:
     retailers:
       index:
         name_contains: Name Contains
+        email_contains: Email Contains
+        country_contains: Country Contains
+        state_contains: State Contains

@@ -7,18 +7,17 @@ Spree Retailers is a simple Spree Extension that adds a retailers page as well a
 Installation
 ------------
 
-As usual, add 'spree_retailers' to your Gemfile or install directly.
-
+As usual, add 'spree_retailers' to your Gemfile and run bundle install:
     
-    # 0.50.x
+    # Spree 0.50.x
     gem 'spree_retailers', '0.50.0.0'
     
-    # 0.40.x 
+    # Spree 0.40.x 
     gem 'spree_retailers', '0.40.0.4'
     
-    # or
+    # install from git
+    gem 'spree_retailers', :git => 'git://github.com/citrus/spree_retailers.git'
     
-    (sudo) gem install spree_retailers
 
 
 To Do
@@ -27,10 +26,10 @@ To Do
 * Write controller tests
 * Write admin tests
 * Google map integration (we're already geocoding, so why not?)
-* Add International Support
+* Add (better) International Support
 
 
 License
 -------
 
-Copyright (c) 2011 Spencer Steffen, released under the New BSD License All rights reserved.
+Copyright (c) 2011 Spencer Steffen and Citrus, released under the New BSD License All rights reserved.
