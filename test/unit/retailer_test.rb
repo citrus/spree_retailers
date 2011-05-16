@@ -7,8 +7,8 @@ class RetailerTest < ActiveSupport::TestCase
   should validate_presence_of(:name)
   should validate_presence_of(:address)
   should validate_presence_of(:city)
-  should validate_presence_of(:state)
-  should validate_presence_of(:zipcode)
+  #should validate_presence_of(:state)
+  #should validate_presence_of(:zipcode)
   
   def setup  
   end
@@ -34,6 +34,32 @@ class RetailerTest < ActiveSupport::TestCase
       # email is valid
       assert !@retailer.errors.include?(:email)
     end
+    
+    should "require state in the US" do
+      @retailer.country = "United States"
+      assert !@retailer.valid?      
+      assert @retailer.errors.include?(:state)
+    end
+    
+    should "not require state outside of the US" do
+      @retailer.country = "Switzerland"
+      assert !@retailer.valid?      
+      assert !@retailer.errors.include?(:state)      
+    end
+    
+    
+    should "require zip code in the US" do
+      @retailer.country = "United States"
+      assert !@retailer.valid?      
+      assert @retailer.errors.include?(:zipcode)      
+    end
+    
+    should "not require zip code outside of the US" do
+      @retailer.country = "Switzerland"
+      assert !@retailer.valid?      
+      assert !@retailer.errors.include?(:zipcode)      
+    end
+    
 
   end
   

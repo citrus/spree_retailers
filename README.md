@@ -17,7 +17,19 @@ As usual, add 'spree_retailers' to your Gemfile and run bundle install:
     
     # install from git
     gem 'spree_retailers', :git => 'git://github.com/citrus/spree_retailers.git'
+
+
+Now, copy the migration file to your project:
+
+    # Spree 0.40.x and 0.50.x
+    rake spree_retailers:install
     
+    # Edge
+    rails g spree_retailers:install
+
+
+That should do it!
+
 
 
 To Do
