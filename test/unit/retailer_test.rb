@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class RetailerTest < ActiveRecord::TestCase
+class RetailerTest < ActiveSupport::TestCase
   
   fixtures :all
   

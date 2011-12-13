@@ -24,8 +24,8 @@ Gem::Specification.new do |s|
   s.add_dependency('mail',       '>= 2.2.0')
   s.add_dependency('geokit',     '>= 1.5.0')
   
-  s.add_development_dependency('dummier',        '>= 0.2.4')
-	s.add_development_dependency('shoulda',        '>= 2.11.3')
-	s.add_development_dependency('sqlite3',        '>= 1.3.2')
+  s.add_development_dependency('dummier', '>= 0.2.4')
+	s.add_development_dependency('shoulda', '>= 2.11.3')
+	s.add_development_dependency('sqlite3', '>= 1.3.2')
   
 end
