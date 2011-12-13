@@ -8,7 +8,7 @@ class Admin::RetailersController < Admin::ResourceController
       params[:search] ||= {}
       params[:search][:meta_sort] ||= "name.asc"
       @search = super.search(params[:search])
-      @collection = @search.paginate(:per_page => Spree::Config[:orders_per_page], :page => params[:page])
+      @collection = @search.page(params[:page]).per(Spree::Config[:orders_per_page])
     end
   
     def get_locations

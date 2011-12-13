@@ -17,24 +17,8 @@ ActionMailer::Base.default_url_options[:host] = "test.com"
 
 Rails.backtrace_cleaner.remove_silencers!
 
-# Configure capybara for integration testing
-#require "capybara/rails"
-#Capybara.default_driver   = :rack_test
-#Capybara.default_selector = :css
-
 # Run any available migration
 ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
-
-# Load support files
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
-
-include HelperMethods
-
-if 40 <= Spree.version.split(".")[1].to_i
-  class ActionController::TestCase
-    include Devise::TestHelpers
-  end
-end
 
 class ActiveSupport::TestCase
   self.fixture_path = File.expand_path('../fixtures', __FILE__)

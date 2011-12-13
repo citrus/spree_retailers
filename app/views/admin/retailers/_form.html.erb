@@ -68,12 +68,23 @@
   <%= error_message_on :retailer, :url %>
 <% end %>
 
-<%= f.field_container :logo do %>
-  <%= f.label :logo, "Logo Image:" %><br />
-  <%= f.file_field :logo, :class => 'file' %>
-  <%= error_message_on :retailer, :logo %>
+<% if @retailer.has_logo? %>
+  <%= f.field_container :logo do %>
+    <p class="current-logo">
+      <%= label_tag 'current_logo', "Current Logo:" %><br />
+      <%= image_tag @retailer.logo.url(:thumb) %>
+    </p>
+    <%= f.label :logo, "Replace Image:" %><br />
+    <%= f.file_field :logo, :class => 'file' %>
+    <%= error_message_on :retailer, :logo %>
+  <% end %>
+<% else %>
+  <%= f.field_container :logo do %>
+    <%= f.label :logo, "Logo Image:" %><br />
+    <%= f.file_field :logo, :class => 'file' %>
+    <%= error_message_on :retailer, :logo %>
+  <% end %>
 <% end %>
-
 
 <script type="text/javascript">
 //<![CDATA[

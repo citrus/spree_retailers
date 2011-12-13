@@ -38,7 +38,7 @@
   </tbody>
 </table>
 
-<%= will_paginate(:prev => "&#171; #{t('previous')}", :next => "#{t('next')} &#187;") %>
+<%= paginate @collection %>
 
 
 
@@ -49,28 +49,23 @@
 
   <% @retailer = Retailer.metasearch %>
   <%= form_for [:admin, @retailer] do |f| %>
-    <%- locals = {:f => f} %>
-    <%= hook :admin_pages_index_search, locals do %>
-      <p>
-        <label><%= t '.name_contains' %></label><br />
-        <%= f.text_field :name_contains, :size => 25 %>
-      </p>
-      <p>
-        <label><%= t '.email_contains' %></label><br />
-        <%= f.text_field :email_contains, :size => 25 %>
-      </p>
-      <p>
-        <label><%= t '.country_contains' %></label><br />
-        <%= f.text_field :country_contains, :size => 25 %>
-      </p>
-      <p>
-        <label><%= t '.state_contains' %></label><br />
-        <%= f.text_field :state_contains, :size => 25 %>
-      </p>      
-    <% end %>
-    <%= hook :admin_pages_index_search_buttons, locals do %>
-      <p><%= button t("search") %></p>
-    <% end %>
+    <p>
+      <label><%= t '.name_contains' %></label><br />
+      <%= f.text_field :name_contains, :size => 25 %>
+    </p>
+    <p>
+      <label><%= t '.email_contains' %></label><br />
+      <%= f.text_field :email_contains, :size => 25 %>
+    </p>
+    <p>
+      <label><%= t '.country_contains' %></label><br />
+      <%= f.text_field :country_contains, :size => 25 %>
+    </p>
+    <p>
+      <label><%= t '.state_contains' %></label><br />
+      <%= f.text_field :state_contains, :size => 25 %>
+    </p>
+    <p><%= button t("search") %></p>
   <% end %>
 </div>
 <% end %>
