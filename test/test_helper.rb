@@ -10,6 +10,7 @@ end
 
 require "rails/test_help"
 require "shoulda"
+require "shoulda/matchers"
 
 ActionMailer::Base.delivery_method    = :test
 ActionMailer::Base.perform_deliveries = true
