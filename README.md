@@ -1,7 +1,7 @@
 Spree Retailers
 ===============
 
-Spree Retailers is a simple Spree Extension that adds a retailers page as well as a retailers admin.
+Spree Retailers is a Spree extension for listing your company's retail stores on your web site.
 
 
 Installation
@@ -9,7 +9,10 @@ Installation
 
 As usual, add 'spree_retailers' to your Gemfile and run bundle install:
     
-    # Spree 0.50.x
+    # Spree 0.70.x
+    gem 'spree_retailers', '0.70.0.0'
+     
+    # Spree 0.50.x, 0.60.x
     gem 'spree_retailers', '0.50.0.0'
     
     # Spree 0.40.x 
@@ -19,17 +22,18 @@ As usual, add 'spree_retailers' to your Gemfile and run bundle install:
     gem 'spree_retailers', :git => 'git://github.com/citrus/spree_retailers.git'
 
 
-Now, copy the migration file to your project:
+Next, copy the migration file to your project:
 
-    # Spree 0.40.x and 0.50.x
+    # Spree 0.40.x, 0.50.x and 0.60.x
     rake spree_retailers:install
     
-    # Edge
+    # 0.70.x and above
     rails g spree_retailers:install
 
 
-That should do it!
+Now, migrate your database with:
 
+    rake db:migrate
 
 
 To Do
