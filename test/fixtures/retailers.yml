@@ -6,7 +6,7 @@ one:
    state: CA
    zipcode: 93101
    phone: 805 555 5555
-   url: http://shop-mcstorey.dev
+   url: http://shop-mcstorey.example.com
    
 two:
    name: Store VonRetailer
@@ -16,7 +16,7 @@ two:
    state: CA
    zipcode: 93101
    phone: 805 555 4444
-   url: http://store-vonretailer.dev
+   url: http://store-vonretailer.example.com
    
 three:
    name: Buy From-Us-alot
@@ -26,4 +26,4 @@ three:
    state: CA
    zipcode: 93101
    phone: 805 555 7890
-   url: buy-from-us-alot.dev
+   url: buy-from-us-alot.example.com

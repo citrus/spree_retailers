@@ -21,10 +21,10 @@ Rails.backtrace_cleaner.remove_silencers!
 ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
 
 class ActiveSupport::TestCase
-  self.fixture_path = File.expand_path('../fixtures', __FILE__)
+  self.fixture_path = File.expand_path("../fixtures", __FILE__)
   fixtures :all
 end
 
-class ActionController::IntegrationTest
-  self.fixture_path = File.expand_path('../fixtures', __FILE__)
+class ActionController::TestCase
+  self.fixture_path = File.expand_path("../fixtures", __FILE__)
 end
