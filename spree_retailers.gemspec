@@ -3,14 +3,15 @@ $:.push File.expand_path("../lib", __FILE__)
 require "spree_retailers/version"
 
 Gem::Specification.new do |s|
+
   s.name        = "spree_retailers"
   s.version     = SpreeRetailers::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Spencer Steffen"]
   s.email       = ["spencer@citrusme.com"]
   s.homepage    = "http://github.com/citrus/spree_retailers"
-  s.summary     = %q{Spree Retailers adds a retailer admin to Spree.}
-  s.description = %q{Spree Retailers adds a retail store page and admin to Spree Commerce.}
+  s.summary     = %q{Spree Retailers is a Spree extension for listing your company's retail stores on your web site.}
+  s.description = %q{Spree Retailers is a Spree extension for listing your company's retail stores on your web site.}
 
   s.rubyforge_project = "spree_retailers"
 
