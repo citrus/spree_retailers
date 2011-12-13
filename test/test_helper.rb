@@ -10,7 +10,6 @@ end
 
 require "rails/test_help"
 require "shoulda"
-require "shoulda/matchers"
 
 ActionMailer::Base.delivery_method    = :test
 ActionMailer::Base.perform_deliveries = true
@@ -22,16 +21,8 @@ Rails.backtrace_cleaner.remove_silencers!
 ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
 
 class ActiveSupport::TestCase
-
-  # include shoulda matchers
-  include Shoulda::Matchers::ActiveRecord
-  extend Shoulda::Matchers::ActiveRecord
-  include Shoulda::Matchers::ActiveModel
-  extend Shoulda::Matchers::ActiveModel
-  
   self.fixture_path = File.expand_path("../fixtures", __FILE__)
-  fixtures :all
-  
+  fixtures :all  
 end
 
 class ActionController::TestCase
