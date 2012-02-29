@@ -1,3 +1,3 @@
 module SpreeRetailers
-  VERSION = "0.70.0.0"
+  VERSION = "1.0.0.0"
 end
