@@ -10,6 +10,9 @@ Installation
 As usual, add 'spree_retailers' to your Gemfile and run bundle install:
   
 ```ruby  
+# Spree 1.0.x
+gem 'spree_retailers', '1.0.0.0'
+
 # Spree 0.70.x
 gem 'spree_retailers', '0.70.0.0'
 
@@ -77,8 +80,6 @@ rails s
 To Do
 ------------------------------------------------------------------------------
 
-* Write controller tests
-* Write admin tests
 * Google map integration (we're already geocoding, so why not?)
 * Add (better) International Support
 
