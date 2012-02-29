@@ -1,5 +1,5 @@
 one:
-   name: Shop McStorey
+   name: Ashop McStorey
    address: 111 State St
    address2:
    city: Santa Barbara
@@ -9,7 +9,7 @@ one:
    url: http://shop-mcstorey.example.com
    
 two:
-   name: Store VonRetailer
+   name: BigStore VonRetailer
    address: 4205 State St
    address2:
    city: Santa Barbara
@@ -19,7 +19,7 @@ two:
    url: http://store-vonretailer.example.com
    
 three:
-   name: Buy From-Us-alot
+   name: Cheap buy From-Us-alot
    address: 425 Chapala St
    address2:
    city: Santa Barbara

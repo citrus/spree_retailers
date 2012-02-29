@@ -1,5 +1,7 @@
 <h1>New Retailer</h1>
 
+<%= render "spree/shared/error_messages", :target => @retailer %>
+
 <%= form_for(@retailer, :url => collection_url, :html => { :multipart => true }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
 
@@ -7,4 +9,3 @@
     <%= button t("create") %> <%= link_to t('cancel'), collection_url %>
   </p>
 <% end %>
-

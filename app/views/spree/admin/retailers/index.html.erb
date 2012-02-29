@@ -29,7 +29,7 @@
       <td><%= retailer.state %></td>
       <td><%= retailer.email %></td>
       <td><%= number_to_phone retailer.phone %></td>
-      <td>
+      <td class="actions">
       	<%= link_to_edit retailer %> &nbsp;
       	<%= link_to_delete retailer %> &nbsp;
       </td>
@@ -41,13 +41,11 @@
 <%= paginate @collection %>
 
 
-
-
 <% content_for :sidebar do %>
 <div class="box">
   <h3><%= t(:search) %></h3>
 
-  <% @retailer = Retailer.metasearch %>
+  <% @retailer = Spree::Retailer.metasearch %>
   <%= form_for [:admin, @retailer] do |f| %>
     <p>
       <label><%= t '.name_contains' %></label><br />

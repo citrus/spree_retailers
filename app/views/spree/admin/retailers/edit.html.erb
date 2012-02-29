@@ -1,5 +1,7 @@
 <h1>Edit Retailer</h1>
 
+<%= render "spree/shared/error_messages", :target => @retailer %>
+
 <%= form_for(@retailer, :url => object_url, :html => { :multipart => true, :method => :put }) do |f| %>
   <%= render :partial => "form", :locals => { :f => f } %>
   <p class="form-buttons">

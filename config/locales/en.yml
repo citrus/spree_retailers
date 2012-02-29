@@ -2,16 +2,12 @@ en:
 
   retailer: Retailer
   retailers: Retailers
-  
-  successfully_created: "%{resource} was successfully created."
-  successfully_updated: "%{resource} was successfully updated."
-  successfully_removed: "%{resource} was successfully removed."
 
-  
-  admin:
-    retailers:
-      index:
-        name_contains: Name Contains
-        email_contains: Email Contains
-        country_contains: Country Contains
-        state_contains: State Contains
+  spree:
+    admin:
+      retailers:
+        index:
+          name_contains: Name Contains
+          email_contains: Email Contains
+          country_contains: Country Contains
+          state_contains: State Contains

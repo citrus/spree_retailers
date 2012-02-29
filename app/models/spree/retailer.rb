@@ -1,4 +1,4 @@
-class Retailer < ActiveRecord::Base
+class Spree::Retailer < ActiveRecord::Base
   
   validates :name, :address, :city, :presence => true
   validates :state, :zipcode, :presence => true, :if => Proc.new{|record| record.country == "United States" }

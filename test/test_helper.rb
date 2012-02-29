@@ -17,14 +17,31 @@ ActionMailer::Base.default_url_options[:host] = "test.com"
 
 Rails.backtrace_cleaner.remove_silencers!
 
-# Run any available migration
-ActiveRecord::Migrator.migrate File.expand_path("../dummy/db/migrate/", __FILE__)
+# Recreate the URL helper so we don't need to depend on spree, just spree_core
+module Spree::UrlHelpers
+  def spree
+    Spree::Core::Engine.routes.url_helpers
+  end
+end
+
+module FixturesHelper  
+  def self.included(base)
+    base.class_eval do
+      self.fixture_path = File.expand_path("../fixtures/spree", __FILE__)
+      set_fixture_class :retailers => Spree::Retailer
+      fixtures :retailers
+    end
+  end  
+end
 
 class ActiveSupport::TestCase
-  self.fixture_path = File.expand_path("../fixtures", __FILE__)
-  fixtures :all  
+  include FixturesHelper
 end
 
 class ActionController::TestCase
-  self.fixture_path = File.expand_path("../fixtures", __FILE__)
+  include Spree::UrlHelpers
+  include FixturesHelper
 end
+
+# Load support files
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| load f }
