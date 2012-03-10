@@ -1,0 +1,46 @@
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
+<h1>Listing Retailer Types</h1>
+
+<table class="index">
+  <thead>
+	<tr>
+    	<th><%= sort_link @search, :name, t("activerecord.attributes.retailer_type.name") %></th>
+    	<th><%= sort_link @search, :live, t("activerecord.attributes.retailer_type.permalink") %></th>
+    	<th><%= t("action") %></th>
+	</tr>
+  </thead>
+  <tbody>
+    <%- @collection.each do |retailer_type|%>
+    <tr id="<%= dom_id retailer_type %>">
+      <td><%= retailer_type.name %></td>
+      <td><%= retailer_type.permalink %></td>
+      <td>
+      	<%= link_to_edit retailer_type %> &nbsp;
+      	<%= link_to_delete retailer_type %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @collection %>
+
+<div id="new_retailer_type"></div>
+<br/>
+<p>
+    <%= link_to icon('add') + ' ' + t(".new_retailer_type"), new_admin_retailer_type_url, :id => "new_retailer_type_link" %>
+</p>
+
+<% content_for :head do %>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+      jQuery('#new_retailer_type_link').click(function (event) {
+        event.preventDefault();
+        jQuery(this).hide();
+        jQuery.ajax({type: 'GET', url: this.href, data: ({authenticity_token: AUTH_TOKEN}), success: function(r){ jQuery('#new_retailer_type').html(r);} });
+      });
+      jQuery("#admin-menu li:contains(Configuration)").addClass("selected");
+    });
+  </script>
+<% end %>

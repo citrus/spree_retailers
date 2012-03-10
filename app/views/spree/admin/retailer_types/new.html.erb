@@ -1,0 +1,14 @@
+<h3><%= t('.new_retailer_type') %></h3>
+
+<% if @retailer_type.try(:errors).present? %>
+  <%= render 'spree/shared/error_messages', :target => @retailer_type %>
+<% end %>
+
+<%= form_for([:admin, @retailer_type]) do |f| %>
+  <%= render "form", :form => f %>
+  <p class="form-buttons">
+    <%= button t("create") %> <%= t('or') %> <%= link_to t('cancel'), collection_url %>
+  </p>
+<% end %>
+
+<%= render "spree/admin/retailer_types/select_configuration_tab" unless request.xhr? %>

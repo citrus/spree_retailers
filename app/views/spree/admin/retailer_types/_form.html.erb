@@ -1,0 +1,11 @@
+<%= form.field_container :name do %>
+  <%= form.label :name, t("activerecord.attributes.retailer_type.name") %><br />
+  <%= form.text_field :name, :class => "text" %>
+  <%= error_message_on :retailer_type, :name %>
+<% end %>
+
+<%= form.field_container :permalink do %>
+  <%= form.label :permalink, t("activerecord.attributes.retailer_type.permalink") %><br />
+  <%= form.text_field :permalink, :class => "text" %>
+  <%= error_message_on :retailer_type, :permalink %>
+<% end %>

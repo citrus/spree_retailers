@@ -15,13 +15,10 @@ class ActiveSupport::IntegrationCase < ActionController::TestCase
 
   # Checks for missing translations after each test
   teardown do
-    source ||= ""
     unless source.blank?
       matches = source.match(/translation[\s-]+missing[^"]*/) || []
-      assert_equal 0, matches.length, "Translation Missing! - #{matches[0]}"
+      assert_equal 0, matches.length, "** #{matches[0]}"
     end
-    Capybara.reset_sessions!
-    Capybara.use_default_driver
   end
   
   

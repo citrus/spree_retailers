@@ -3,11 +3,29 @@ en:
   retailer: Retailer
   retailers: Retailers
 
+  activerecord:
+    attributes:
+      retailer_type:
+        name: Name
+        permalink: Permalink
+
   spree:
     admin:
+      settings:
+        retailer_types: Retailer Types
+        explain_retailer_types: Manage retailer types
+    
       retailers:
         index:
+          retailer_type_id_equals: Retailer Type
           name_contains: Name Contains
           email_contains: Email Contains
           country_contains: Country Contains
           state_contains: State Contains
+        
+      retailer_types:
+        index:
+          new_retailer_type: New Retailer Type
+        new:
+          new_retailer_type: New Retailer Type
+  
