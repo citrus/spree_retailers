@@ -1,3 +1,9 @@
+<%= f.field_container :retailer_type_id do %>
+  <%= f.label :retailer_type_id, "Type" %><br />
+  <%= f.select :retailer_type_id, Spree::RetailerType.to_options, { :include_blank => true }, { :class => 'title' } %>
+  <%= error_message_on :retailer, :retailer_type_id %>
+<% end %>
+
 <%= f.field_container :name do %>
   <%= f.label :name, "Name" %><br />
   <%= f.text_field :name, :class => 'title' %>
@@ -16,14 +22,11 @@
   <%= error_message_on :retailer, :address2 %>
 <% end %>
 
-
 <%= f.field_container :city do %>
   <%= f.label :city, "City" %><br />
   <%= f.text_field :city, :class => 'text' %>
   <%= error_message_on :retailer, :city %>
 <% end %>
-
-
 
 <%= f.field_container :state do %>
   <%= f.label :state, "State" %><br />
@@ -34,14 +37,12 @@
   <% end %>
   <%= error_message_on :retailer, :state %>
 <% end %>
-  
 
 <%= f.field_container :zipcode do %>
   <%= f.label :zipcode, "Zip" %><br />
   <%= f.text_field :zipcode, :class => 'text' %>
   <%= error_message_on :retailer, :zipcode %>
 <% end %>
-
 
 <%= f.field_container :country do %>
   <%= f.label :country, "Country" %><br />

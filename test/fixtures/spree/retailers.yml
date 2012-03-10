@@ -1,4 +1,5 @@
 one:
+   retailer_type: one
    name: Ashop McStorey
    address: 111 State St
    address2:
@@ -9,6 +10,7 @@ one:
    url: http://shop-mcstorey.example.com
    
 two:
+   retailer_type: one
    name: BigStore VonRetailer
    address: 4205 State St
    address2:
@@ -19,6 +21,7 @@ two:
    url: http://store-vonretailer.example.com
    
 three:
+   retailer_type: two
    name: Cheap buy From-Us-alot
    address: 425 Chapala St
    address2:

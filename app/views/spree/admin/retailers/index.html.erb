@@ -14,7 +14,7 @@
   <thead>
 	<tr>
     	<th><%= sort_link @search, :name %></th>
-    	<th><%= sort_link @search, :address %></th>
+    	<th><%= sort_link @search, :retailer_type %></th>
     	<th><%= sort_link @search, :state %></th>
     	<th><%= sort_link @search, :email %></th>
     	<th><%= sort_link @search, :phone %></th>
@@ -25,7 +25,7 @@
     <%- @collection.each do |retailer|%>
     <tr id="<%= dom_id retailer %>">
       <td width="200px"><%= link_to retailer.name, object_url(retailer) %></td>
-      <td><%= retailer.address %></td>
+      <td><%= retailer.retailer_type.nil? ? "n/a" : retailer.retailer_type.name %></td>
       <td><%= retailer.state %></td>
       <td><%= retailer.email %></td>
       <td><%= number_to_phone retailer.phone %></td>
@@ -47,6 +47,10 @@
 
   <% @retailer = Spree::Retailer.metasearch %>
   <%= form_for [:admin, @retailer] do |f| %>
+    <p>
+      <label><%= t '.retailer_type_id_equals' %></label><br />
+      <%= f.select :retailer_type_id_equals, Spree::RetailerType.to_options, { :include_blank => true, :selected => (params[:search][:retailer_type_id_equals] if params[:search]) } %>
+    </p>
     <p>
       <label><%= t '.name_contains' %></label><br />
       <%= f.text_field :name_contains, :size => 25 %>

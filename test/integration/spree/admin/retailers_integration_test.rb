@@ -4,6 +4,7 @@ class Spree::Admin::RetailersIntegrationTest < ActiveSupport::IntegrationCase
   
   def setup
     @image = File.expand_path("../../../../support/files/1.jpg", __FILE__)
+    @retailer_type = retailer_types(:one)
   end
   
   should "get the retailers index" do
@@ -16,7 +17,7 @@ class Spree::Admin::RetailersIntegrationTest < ActiveSupport::IntegrationCase
     Spree::Retailer.destroy_all
     Spree::Config.set(:orders_per_page => 2)
     1.upto(3) { |i|
-      Spree::Retailer.create(:name => "Retailer ##{i}", :address => "#{i * 100} State St", :city => "Santa Barbara")
+      Spree::Retailer.create(:retailer_type => @retailer_type, :name => "Retailer ##{i}", :address => "#{i * 100} State St", :city => "Santa Barbara")
     }
     visit spree.admin_retailers_path
     within ".pagination" do
@@ -30,6 +31,7 @@ class Spree::Admin::RetailersIntegrationTest < ActiveSupport::IntegrationCase
   should "create a retailer" do
     visit spree.admin_retailers_path
     click_link "New Retailer"
+    select @retailer_type.name, :from => "Type"
     fill_in "Name", :with => "OMG Retailer"
     fill_in "Address", :with => "1000 State St"
     fill_in "City", :with => "Santa Barbara"
@@ -45,7 +47,10 @@ class Spree::Admin::RetailersIntegrationTest < ActiveSupport::IntegrationCase
     click_button "Create"
     assert_response :success
     within ".errorExplanation" do
+      assert_seen "Retailer type can't be blank"
       assert_seen "Name can't be blank"
+      assert_seen "Address can't be blank"
+      assert_seen "City can't be blank"
     end
   end
   

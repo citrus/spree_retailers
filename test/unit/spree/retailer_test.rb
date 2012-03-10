@@ -2,6 +2,8 @@ require 'test_helper'
 
 class Spree::RetailerTest < ActiveSupport::TestCase
    
+  should belong_to(:retailer_type)
+   
   should validate_presence_of(:name)
   should validate_presence_of(:address)
   should validate_presence_of(:city)

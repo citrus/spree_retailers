@@ -28,8 +28,9 @@ module FixturesHelper
   def self.included(base)
     base.class_eval do
       self.fixture_path = File.expand_path("../fixtures/spree", __FILE__)
+      set_fixture_class :retailer_types => Spree::RetailerType
       set_fixture_class :retailers => Spree::Retailer
-      fixtures :retailers
+      fixtures :all
     end
   end  
 end
