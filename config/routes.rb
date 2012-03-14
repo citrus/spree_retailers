@@ -5,7 +5,7 @@ Spree::Core::Engine.routes.append do
     resources :retailers
   end
 
-  resources :retailers, :only => :index
   get '/:retailer_type_id' => 'retailers#index', :as => :retailer_type, :constraints => { :retailer_type_id => /.*/ }
+  resources :retailers, :only => :index
   
 end
