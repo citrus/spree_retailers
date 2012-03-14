@@ -2,6 +2,13 @@
 
 <div class="left" data-hook="retailers-intro">
   <p><%= t('spree.retailers.intro_text') %></p>
+  <% if @retailer_types %>
+    <ul class="retailer-type-nav">
+    <% @retailer_types.each do |t| %>
+      <li><%= link_to t.name, t.permalink %></li>
+    <% end %>
+    </ul>
+  <% end %>  
 </div>
      
 <div class="right" data-hook="retailers-index">

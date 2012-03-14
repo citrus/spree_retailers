@@ -1,6 +1,7 @@
 class Spree::RetailersController < Spree::BaseController
 
   def index
+    @retailer_types = Spree::RetailerType.order(:name).all
     @retailers = default_scope.all
     get_states
   end

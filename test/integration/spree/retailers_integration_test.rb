@@ -19,6 +19,15 @@ class Spree::RetailersIntegrationTest < ActiveSupport::IntegrationCase
     end
   end
   
+  should "have retailers type nav" do
+    visit spree.retailers_path
+    within ".retailer-type-nav" do
+      Spree::RetailerType.all.each do |t|
+        assert has_link?(t.name)
+      end
+    end
+  end
+  
   should "get retailers by type" do
     visit spree.retailer_type_path(@retailer_type)
     within ".retailer" do
