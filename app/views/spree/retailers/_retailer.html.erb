@@ -1,5 +1,5 @@
 <% if defined? retailer %>
-  <div class="retailer">
+  <div class="retailer" data-hook="retailer">
     <div class="retailer-logo">
       <%= image_tag retailer.logo.url, :alt => retailer.name, :class => 'thumb' if retailer.has_logo? %>
     </div>

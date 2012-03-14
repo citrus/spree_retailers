@@ -10,6 +10,10 @@ en:
         permalink: Permalink
 
   spree:
+    
+    retailers:
+      intro_text: Change me in `en.yml` (en.spree.retailers.intro_text)
+  
     admin:
       settings:
         retailer_types: Retailer Types
