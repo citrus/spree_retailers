@@ -1,3 +1,7 @@
+# for phone number formatting
+require 'action_view/helpers'
+extend ActionView::Helpers
+
 namespace :spree_retailers do
   desc "Import list of retailers from a CSV"
   task :import => :environment do |t, args|
@@ -44,13 +48,23 @@ namespace :spree_retailers do
       :logo
     ]
     
-    rows.each do |row|
+    rows[1..-1].each do |row|
       info = {}
       
       cols.each do |key, value|
         #Trim whitespace off the beginning and end of row fields
         row[value].try :strip!
         info[key] = row[value] if valid_fields.include? key.to_sym
+      end
+
+      if info[:state].empty? or info[:zipcode].empty?
+        puts "Error adding #{info[:name]}, no state or zipcode defined"
+        next
+      end
+
+      # format phone number if applicable
+      unless info[:phone].empty?
+        info[:phone] = number_to_phone info[:phone], :area_code => true
       end
       
       # default to US
