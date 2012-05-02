@@ -1,11 +1,13 @@
 <% if defined? retailer %>
+<% has_address = !"#{retailer.address}#{retailer.city}#{retailer.state}#{retailer.zipcode}".blank? %>
   <div class="retailer" data-hook="retailer">
     <div class="retailer-logo">
       <%= image_tag retailer.logo.url, :alt => retailer.name, :class => 'thumb' if retailer.has_logo? %>
     </div>
     <div class="retailer-info">
       <p>
-        <b><%= retailer.has_url? ? link_to(retailer.name, retailer.url, :class => 'popup') : retailer.name %></b><br/>
+        <b><%= retailer.has_url? ? link_to(retailer.name, retailer.url, :class => 'popup') : retailer.name %></b>
+        <%= raw has_address ? "<br/>" : "" %>
         <%= retailer.address %>
         
         <% if retailer.has_address2? %>
@@ -13,9 +15,9 @@
           <%= retailer.address2 %>
         <% end %>
         
-        <br/>
+        <%= raw has_address ? "<br/>" : "" %>
         
-        <%= retailer.city %>, 
+        <%= retailer.city.try { |c| "#{c},"} %>
         <%= retailer.state %> 
         <%= retailer.zipcode %> 
       
@@ -33,8 +35,7 @@
           <br/>
           <%= link_to retailer.url, retailer.url, :class => 'popup' %>
         <% end %>
-        <br/>
-        <%= link_to t(:get_directions), google_map_directions(retailer) %>
+        <%= has_address ? "<br/>" + link_to(t(:get_directions), google_map_directions(retailer)) : "" %>
       </p>
     </div>
   </div>

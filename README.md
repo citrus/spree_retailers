@@ -45,6 +45,17 @@ rake db:migrate
 ```
 
 ------------------------------------------------------------------------------
+CSV Import
+------------------------------------------------------------------------------
+
+To import retailers via a CSV:
+
+```rake spree_retailers:import FILE=international_distributors.csv TYPE=Distributors SKIP_VALIDATION=true```
+
+Where the CSV file contains headers with the following names:  
+name, address, city, state, country, zipcode, phone, email, url, logo. `SKIP_VALIDATION` is only really helpful when you importing data that is missing the address fields
+
+------------------------------------------------------------------------------
 Testing
 ------------------------------------------------------------------------------
 
