@@ -10,6 +10,9 @@ Installation
 As usual, add 'spree_retailers' to your Gemfile and run bundle install:
   
 ```ruby  
+# Spree 1.1.x
+gem 'spree_retailers', :git => 'git://github.com/citrus/spree_retailers.git'
+
 # Spree 1.0.x
 gem 'spree_retailers', '1.0.0.0'
 
