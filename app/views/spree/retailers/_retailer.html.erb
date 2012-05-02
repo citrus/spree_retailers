@@ -6,7 +6,7 @@
     </div>
     <div class="retailer-info">
       <p>
-        <b><%= retailer.has_url? ? link_to(retailer.name, retailer.url, :class => 'popup') : retailer.name %></b>
+        <b><%= retailer.has_url? ? link_to(retailer.name, retailer.url, :class => 'popup', :target => '_blank') : retailer.name %></b>
         <%= raw has_address ? "<br/>" : "" %>
         <%= retailer.address %>
         
@@ -33,10 +33,10 @@
         
         <% if retailer.has_url? %>
           <br/>
-          <%= link_to retailer.url, retailer.url, :class => 'popup' %>
+          <%= link_to retailer.url, retailer.url, :class => 'popup', :target => '_blank' %>
         <% end %>
         <%= raw has_address ? "<br/>" : "" %>
-        <%= has_address ? link_to(t(:get_directions), google_map_directions(retailer)) : "" %>
+        <%= has_address ? link_to(t(:get_directions), google_map_directions(retailer), :target => '_blank') : "" %>
       </p>
     </div>
   </div>
