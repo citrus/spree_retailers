@@ -17,7 +17,7 @@ class Spree::Admin::RetailersIntegrationTest < ActiveSupport::IntegrationCase
     Spree::Retailer.destroy_all
     Spree::Config.set(:orders_per_page => 2)
     1.upto(3) { |i|
-      Spree::Retailer.create(:retailer_type => @retailer_type, :name => "Retailer ##{i}", :address => "#{i * 100} State St", :city => "Santa Barbara")
+      Spree::Retailer.create(:retailer_type_id => @retailer_type.id, :name => "Retailer ##{i}", :address => "#{i * 100} State St", :city => "Santa Barbara")
     }
     visit spree.admin_retailers_path
     within ".pagination" do
@@ -62,7 +62,7 @@ class Spree::Admin::RetailersIntegrationTest < ActiveSupport::IntegrationCase
   
     should "display the index" do
       visit spree.admin_retailers_path
-      within "tr#spree_retailer_#{@retailer.id}" do
+      within "tr#retailer_#{@retailer.id}" do
         assert_seen @retailer.name
         within "td.actions" do
           assert find("a.icon_link").native.attribute("href").include?(spree.edit_admin_retailer_path(@retailer))
@@ -74,7 +74,7 @@ class Spree::Admin::RetailersIntegrationTest < ActiveSupport::IntegrationCase
     should "edit the retailer" do
       @retailer.update_attribute(:logo, File.open(@image))
       visit spree.edit_admin_retailer_path(@retailer)
-      assert_seen "Current Logo", :within => ".edit_spree_retailer p.current-logo"
+      assert_seen "Current Logo", :within => ".edit_retailer p.current-logo"
       assert has_xpath?("//img[@src='#{@retailer.logo.url(:thumb)}']")
       fill_in "Name", :with => "Just another name"
       click_button "Update"

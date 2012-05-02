@@ -1,5 +1,7 @@
 class Spree::RetailerType < ActiveRecord::Base
   
+  attr_accessible :name, :permalink
+  
   has_many :retailers, :class_name => "Spree::Retailer", :dependent => :destroy
   
   validates :name, :presence => true

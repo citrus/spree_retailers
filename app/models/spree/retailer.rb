@@ -1,4 +1,6 @@
 class Spree::Retailer < ActiveRecord::Base
+
+  attr_accessible :retailer_type_id, :name, :email, :phone, :address, :address2, :city, :state, :zipcode, :url, :logo
   
   belongs_to :retailer_type, :class_name => "Spree::RetailerType"
   
@@ -59,23 +61,19 @@ class Spree::Retailer < ActiveRecord::Base
     def geocode
       geo = Geokit::Geocoders::MultiGeocoder.geocode(full_address)
       if geo.success
-        self.attributes = {  
-          :latitude         => geo.lat,
-          :longitude        => geo.lng,
-          :geokit_provider  => geo.provider,
-          :geokit_precision => geo.precision,
-          :geokit_accuracy  => geo.accuracy,
-          :geokit_success   => true
-        }
+        self.latitude         = geo.lat
+        self.longitude        = geo.lng
+        self.geokit_provider  = geo.provider
+        self.geokit_precision = geo.precision
+        self.geokit_accuracy  = geo.accuracy
+        self.geokit_success   = true
       else
-        self.attributes = {
-          :latitude         => nil,
-          :longitude        => nil,
-          :geokit_provider  => nil,
-          :geokit_precision => nil,
-          :geokit_accuracy  => nil,
-          :geokit_success   => false
-        }
+        self.latitude         = nil
+        self.longitude        = nil
+        self.geokit_provider  = nil
+        self.geokit_precision = nil
+        self.geokit_accuracy  = nil
+        self.geokit_success   = false
       end
     end
   
