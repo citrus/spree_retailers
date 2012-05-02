@@ -35,7 +35,8 @@
           <br/>
           <%= link_to retailer.url, retailer.url, :class => 'popup' %>
         <% end %>
-        <%= has_address ? "<br/>" + link_to(t(:get_directions), google_map_directions(retailer)) : "" %>
+        <%= raw has_address ? "<br/>" : "" %>
+        <%= has_address ? link_to(t(:get_directions), google_map_directions(retailer)) : "" %>
       </p>
     </div>
   </div>
