@@ -7,6 +7,7 @@ namespace :spree_retailers do
   task :import => :environment do |t, args|
     file = ENV['FILE']
     type = ENV['TYPE']
+    skip_validation = ENV['SKIP_VALIDATION'] == 'true'
     
     if file.empty?
       puts "No CSV specified"
@@ -57,13 +58,13 @@ namespace :spree_retailers do
         info[key] = row[value] if valid_fields.include? key.to_sym
       end
 
-      if info[:state].empty? or info[:zipcode].empty?
+      if (info[:state].blank? or info[:zipcode].blank?) and !skip_validation
         puts "Error adding #{info[:name]}, no state or zipcode defined"
         next
       end
 
       # format phone number if applicable
-      unless info[:phone].empty?
+      unless info[:phone].blank?
         info[:phone] = number_to_phone info[:phone], :area_code => true
       end
       
@@ -74,7 +75,8 @@ namespace :spree_retailers do
       
       puts "Adding: #{info[:name]}"
            
-      type.retailers.create! info
+      r = type.retailers.new info
+      r.save :validate => skip_validation
     end
   end
 end
