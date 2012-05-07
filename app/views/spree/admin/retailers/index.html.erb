@@ -45,27 +45,26 @@
 <div class="box">
   <h3><%= t(:search) %></h3>
 
-  <% @retailer = Spree::Retailer.metasearch %>
-  <%= form_for [:admin, @retailer] do |f| %>
+  <%= search_form_for [:admin, @search] do |f| %>
     <p>
       <label><%= t '.retailer_type_id_equals' %></label><br />
-      <%= f.select :retailer_type_id_equals, Spree::RetailerType.to_options, { :include_blank => true, :selected => (params[:search][:retailer_type_id_equals] if params[:search]) } %>
+      <%= f.select :retailer_type_id_eq, Spree::RetailerType.to_options, { :include_blank => true, :selected => (params[:q][:retailer_type_id_eq] if params[:q]) } %>
     </p>
     <p>
       <label><%= t '.name_contains' %></label><br />
-      <%= f.text_field :name_contains, :size => 25 %>
+      <%= f.text_field :name_cont, :size => 25 %>
     </p>
     <p>
       <label><%= t '.email_contains' %></label><br />
-      <%= f.text_field :email_contains, :size => 25 %>
+      <%= f.text_field :email_cont, :size => 25 %>
     </p>
     <p>
       <label><%= t '.country_contains' %></label><br />
-      <%= f.text_field :country_contains, :size => 25 %>
+      <%= f.text_field :country_cont, :size => 25 %>
     </p>
     <p>
       <label><%= t '.state_contains' %></label><br />
-      <%= f.text_field :state_contains, :size => 25 %>
+      <%= f.text_field :state_cont, :size => 25 %>
     </p>
     <p><%= button t("search") %></p>
   <% end %>

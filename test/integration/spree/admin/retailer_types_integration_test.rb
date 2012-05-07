@@ -24,7 +24,7 @@ class Spree::Admin::RetailerTypesIntegrationTest < ActiveSupport::IntegrationCas
       assert_match /#{spree.new_admin_retailer_type_path}$/, btn.attribute('href')
       assert_equal "New Retailer Type", btn.text
       btn.click
-      within "#new_spree_retailer_type" do
+      within "#new_retailer_type" do
         fill_in "Name", :with => "Retailers"
         fill_in "Permalink", :with => "retailers"
       end
@@ -43,10 +43,10 @@ class Spree::Admin::RetailerTypesIntegrationTest < ActiveSupport::IntegrationCas
     should "edit and update" do
       Spree::RetailerType.destroy_all(:permalink => "distributors")
       visit spree.admin_retailer_types_path
-      within "tr#spree_retailer_type_#{@retailer_type.id}" do
+      within "tr#retailer_type_#{@retailer_type.id}" do
         click_link "Edit"
       end
-      within "#edit_spree_retailer_type_#{@retailer_type.id}" do
+      within "#edit_retailer_type_#{@retailer_type.id}" do
         fill_in "Name", :with => "Distributors"
         fill_in "Permalink", :with => "distributors"
       end
@@ -62,7 +62,7 @@ class Spree::Admin::RetailerTypesIntegrationTest < ActiveSupport::IntegrationCas
     
     should "get destroyed" do
       visit spree.admin_retailer_types_path
-      within "tr#spree_retailer_type_#{@retailer_type.id}" do
+      within "tr#retailer_type_#{@retailer_type.id}" do
         find("a[href='#']").click
       end      
       assert find_by_id("popup_ok").click
