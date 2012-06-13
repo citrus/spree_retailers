@@ -76,7 +76,7 @@ namespace :spree_retailers do
       puts "Adding: #{info[:name]}"
            
       r = type.retailers.new info
-      r.save :validate => skip_validation
+      r.save! :validate => skip_validation
     end
   end
 end
