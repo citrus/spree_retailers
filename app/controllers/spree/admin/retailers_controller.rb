@@ -8,7 +8,7 @@ private
     params[:q] ||= {}
     params[:q][:s] ||= "name asc"
     @search = Spree::Retailer.search(params[:q])
-    @collection = @search.result.page(params[:page]).per(Spree::Config[:orders_per_page])
+    @collection = @search.result.includes(:retailer_type).page(params[:page]).per(Spree::Config[:orders_per_page])
   end
 
   def get_locations
