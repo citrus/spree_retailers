@@ -1,6 +1,6 @@
 class Spree::Retailer < ActiveRecord::Base
 
-  attr_accessible :retailer_type_id, :name, :email, :phone, :address, :address2, :city, :state, :zipcode, :url, :logo
+  attr_accessible :retailer_type_id, :name, :email, :phone, :address, :address2, :city, :state, :country, :zipcode, :url, :logo
   
   belongs_to :retailer_type, :class_name => "Spree::RetailerType"
   
