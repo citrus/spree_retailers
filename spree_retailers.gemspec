@@ -20,8 +20,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   
-  s.add_dependency('spree_core', '~> 1.1.0')
-  s.add_dependency('geokit',     '~> 1.6.5')
+  s.add_dependency 'spree_core', '~> 1.1'
+  s.add_dependency 'geokit',     '~> 1.6.5'
   
   s.add_development_dependency('dummier',  '>= 0.3.0')
 	s.add_development_dependency('shoulda',  '>= 3.0.0')
