@@ -28,7 +28,7 @@
         
         <% if retailer.has_email? %>
           <br/>
-          <%= mail_to retailer.email %>
+          <%= mail_to retailer.email, retailer.email, :encode => 'javascript' %>
         <% end %>
         
         <% if retailer.has_url? %>

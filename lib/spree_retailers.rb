@@ -3,6 +3,3 @@ require "geokit"
 
 require "spree_retailers/version"
 require "spree_retailers/engine"
-
-module SpreeRetailers
-end

@@ -1,10 +1,10 @@
 class Spree::Retailer < ActiveRecord::Base
 
-  attr_accessible :retailer_type_id, :name, :email, :phone, :address, :address2, :city, :state, :country, :zipcode, :url, :logo
+  attr_accessible :retailer_type_id, :name, :email, :phone, :address, :address2, :city, :country, :state, :zipcode, :url, :logo
   
   belongs_to :retailer_type, :class_name => "Spree::RetailerType"
   
-  validates :retailer_type_id, :name, :address, :city, :presence => true
+  validates :retailer_type_id, :name, :presence => true
   validates :state, :zipcode, :presence => true, :if => Proc.new{|record| record.country == "United States" }
   
   validates :email, :email => true, :allow_blank => true
